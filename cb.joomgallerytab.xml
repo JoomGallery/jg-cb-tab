@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cbinstall version="1.0" type="plugin" group="user">
+  <name>JoomGallery</name>
+  <author>Armin Hornung-JoomGallery team</author>
+  <creationDate>2012-02-14</creationDate>
+  <copyright>(C) 2009 Armin Hornung, 2010-2012 JoomGallery team</copyright>
+  <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+  <authorEmail>team@joomgallery.net</authorEmail>
+  <authorUrl>http://www.joomgallery.net</authorUrl>
+  <version>1.7</version>
+  <description>Provides some tabs for Community Builder for usage with JoomGallery. Be sure to publish the Plugin before usage. Then, you can configure, publish and unpublish each tab of it separately in the CB Tab Management.</description>
+  <files>
+    <filename plugin="cb.joomgallerytab">cb.joomgallerytab.php</filename>
+    <filename>index.html</filename>
+    <filename>language/en-GB.php</filename>
+    <filename>language/de-DE.php</filename>
+    <filename>language/it-IT.php</filename>
+    <filename>language/es-ES.php</filename>
+    <filename>language/ja-JP.php</filename>
+    <filename>language/index.html</filename>
+  </files>
+  <tabs>
+    <tab name="JoomGallery Images" description="" class="getGalleryTab" fields="0" position="cb_tabmain" displaytype="tab">
+      <params>
+        <param name="showEmptyTab" type="radio" default="1" label="Show empty Tab" description="Display the Gallery Tab even if the user has no pics uploaded">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="uploadLinkEnabled" type="radio" default="1" label="Display Link to Joomgallery Userpanel for uploads" description="When visiting his own Usergallery, the user can be given a link to upload more pictures">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="showUserRating" type="radio" default="1" label="Show overall user rating" description="Displays the overall rating of the user, averaged from all his votes.">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="showCategory" type="radio" default="1" label="Display Category Path" description="Show the category path the picture is in under the title">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="sortBy" type="list" default="jg.catid ASC" label="Order images by" description="">
+          <option value="jg.catid ASC">Category (default)</option>
+          <option value="jg.imgdate ASC">Date of image (oldest first)</option>
+          <option value="jg.imgdate DESC">Date if image (newest first)</option>
+          <option value="jg.hits DESC">Hits (most viewed first)</option>
+          <option value="cmtcount DESC">Comments (most commented first)</option>
+          <option value="cmtcount ASC">Comments (least commented first)</option>
+          <option value="rating DESC">Rating (best first)</option>
+          <option value="rating ASC">Rating (worst first)</option>
+        </param>
+        <param name="categoryfilter" type="text" size="15" default="" label="Display only from categories" description="Enter a comma-separated list of category-IDs to display only pictures from these categories (e.g. &quot;1,5,6&quot;). Leave empty (default) to show pictures from all categories. This option requires JoomGallery 1.0.1, 1.5, or later!" />
+        <param name="picsperpage" type="text" size="5" default="" label="Pictures per Page" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="numcols" type="text" size="5" default="" label="Number of columns" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="pagination" type="radio" default="1" label="Display pagination (otherwise only first page)" description="Spreads the images over several pages. If disabled, only the first page will be displayed, containing the # of pics entered above">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+                <param name="hidebackend" type="radio" default="0" label="Hide images uploaded from Backend" description="If enabled, no pictures that were uploaded from the Admin backend are shown on the tab.">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="showhits" type="radio" default="1" label="Show number of hits" description="">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="shownumcomments" type="radio" default="1" label="Show number of comments" description="">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="showrate" type="radio" default="1" label="Show rating" description="">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+      </params>
+      <fields>
+      </fields>
+    </tab>
+    <tab name="JoomGallery Nametags" description="" class="getGalleryTagsTab" fields="0" position="cb_tabmain" displaytype="tab">
+      <params>
+        <param name="showEmptyTab" type="radio" default="1" label="Show empty Tab" description="Display the GalleryTags-Tab even if the user is tagged in no images">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showCategory" type="radio" default="1" label="Display Category Path" description="Show the category path the picture is in under the title">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="sortBy" type="list" default="jg.catid ASC" label="Order images by:" description="">
+          <option value="jg.catid ASC">Category (default)</option>
+          <option value="jg.imgdate ASC">Date of image (oldest first)</option>
+          <option value="jg.imgdate DESC">Date of image (newest first)</option>
+          <option value="ndate ASC">Date of nametag (oldest first)</option>
+          <option value="ndate DESC">Date of nametag (newest first)</option>
+          <option value="jg.hits DESC">Hits (most viewed first)</option>
+          <option value="cmtcount DESC">Comments (most commented first)</option>
+          <option value="cmtcount ASC">Comments (least commented first)</option>
+          <option value="rating DESC">Rating (best first)</option>
+          <option value="rating ASC">Rating (worst first)</option>
+        </param>
+        <param name="categoryfilter" type="text" size="15" default="" label="Display only from categories" description="Enter a comma-separated list of category-IDs to display only pictures from these categories (e.g. &quot;1,5,6&quot;). Leave empty (default) to show pictures from all categories. This option requires JoomGallery 1.0.1, 1.5, or later!" />
+        <param name="picsperpage" type="text" size="5" default="" label="Pictures per Page" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="numcols" type="text" size="5" default="" label="Number of columns" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="pagination" type="radio" default="1" label="Display pagination (otherwise only first page)" description="Spreads the images over several pages. If disabled, only the first page will be displayed, containing the # of pics entered above">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="hidebackend" type="radio" default="0" label="Hide images uploaded from Backend" description="If enabled, no pictures that were uploaded from the Admin backend are shown on the tab.">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showauthor" type="radio" default="1" label="Show image author" description="Displays the author of the image.">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showhits" type="radio" default="1" label="Show number of hits" description="">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="shownumcomments" type="radio" default="1" label="Show number of comments" description="">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showrate" type="radio" default="1" label="Show rating" description="">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+      </params>
+      <fields>
+      </fields>
+    </tab>
+    <tab name="JoomGallery Favourites" description="" class="getGalleryFavouritesTab" fields="0" position="cb_tabmain" displaytype="tab">
+      <params>
+        <param name="showEmptyTab" type="radio" default="1" label="Show empty Tab" description="Display the GalleryFavourits-Tab even when the user has no favourites">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showPublic" type="radio" default="1" label="Display favoured images to Public" description="Enable, if everybody should see a user\'s favourites. Otherwise, only the user will see the favourites tab in his profile">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showCategory" type="radio" default="1" label="Display Category Path" description="Show the category path the picture is in under the title">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="sortBy" type="list" default="jg.catid ASC" label="Order images by:" description="">
+          <option value="jg.catid ASC">Category (default)</option>
+          <option value="jg.imgdate ASC">Date of image (oldest first)</option>
+          <option value="jg.imgdate DESC">Date of image (newest first)</option>
+          <option value="jg.hits DESC">Hits (most viewed first)</option>
+          <option value="cmtcount DESC">Comments (most commented first)</option>
+          <option value="cmtcount ASC">Comments (least commented first)</option>
+          <option value="rating DESC">Rating (best first)</option>
+          <option value="rating ASC">Rating (worst first)</option>
+        </param>
+        <param name="categoryfilter" type="text" size="15" default="" label="Display only from categories" description="Enter a comma-separated list of category-IDs to display only pictures from these categories (e.g. &quot;1,5,6&quot;). Leave empty (default) to show pictures from all categories. This option requires JoomGallery 1.0.1, 1.5, or later!" />
+        <param name="picsperpage" type="text" size="5" default="" label="Pictures per Page" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="numcols" type="text" size="5" default="" label="Number of columns" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="pagination" type="radio" default="1" label="Display pagination (otherwise only first page)" description="Spreads the images over several pages. If disabled, only the first page will be displayed, containing the # of pics entered above">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="hidebackend" type="radio" default="0" label="Hide images uploaded from Backend" description="If enabled, no pictures that were uploaded from the Admin backend are shown on the tab.">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showauthor" type="radio" default="1" label="Show image author" description="Displays the author of the image.">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showhits" type="radio" default="1" label="Show number of hits" description="">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="shownumcomments" type="radio" default="1" label="Show number of comments" description="">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showrate" type="radio" default="1" label="Show rating" description="">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+      </params>
+      <fields>
+      </fields>
+    </tab>
+    <tab name="JoomGallery Comments" description="" class="getGalleryCommentsTab" fields="0" position="cb_tabmain" displaytype="tab">
+      <params>
+        <param name="showEmptyTab" type="radio" default="1" label="Show empty Tab" description="Display the Comments-Tab even when there are no comments">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="sortBy" type="list" default="jgco.cmtid DESC" label="Order images by:" description="">
+          <option value="jgco.cmtid DESC">Date (newest first, default)</option>
+          <option value="jgco.cmtid ASC">Date (oldest first)</option>
+          <option value="jg.hits DESC">Hits (most viewed first)</option>
+          <option value="cmtcount DESC">Comments (most commented first)</option>
+          <option value="cmtcount ASC">Comments (least commented first)</option>
+          <option value="rating DESC">Rating (best first)</option>
+          <option value="rating ASC">Rating (worst first)</option>
+        </param>
+        <param name="picsperpage" type="text" size="5" default="" label="Pictures per Page" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="numcols" type="text" size="5" default="" label="Number of columns" description="Leave empty (default) to use the setting from the JoomGallery component" />
+        <param name="pagination" type="radio" default="1" label="Display pagination (otherwise only first page)" description="Spreads the comments over several pages. If disabled, only the first page will be displayed, containing the # of comments entered above">
+          <option value="0">Disabled</option>
+            <option value="1">Enabled</option>
+        </param>
+        <param name="completeComment" type="radio" default="1" label="Complete comment (otherwise shortened)" description="Should the complete comment, or only the beginning be showed?">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showcmttext" type="radio" default="1" label="Show text" description="Show text of comment">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+        <param name="showcmtdate" type="radio" default="1" label="Show date" description="Show date of comment">
+          <option value="0">Disabled</option>
+          <option value="1">Enabled</option>
+        </param>
+      </params>
+    </tab>
+  </tabs>
+</cbinstall>
